@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/config/router.dart';
+import 'package:ecommerce_app/config/theme.dart';
 import 'package:ecommerce_app/pages/accountScreen.dart';
 import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:ecommerce_app/pages/homeScreen.dart';
@@ -14,8 +16,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Home(),
+    return  MaterialApp(
+      home: const Home(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: HomeScreen.routeName,
+      theme: theme(), 
+      // title: "Ecommerce",
+        
     );
   }
 }
@@ -32,7 +39,7 @@ class _HomeState extends State<Home> {
 
   //bottom bar
     int selectedIndex = 0;
-    Icon? fabIcon = Icon(Icons.search, color: Colors.black,);
+    Icon? fabIcon = const Icon(Icons.search, color: Colors.black,);
     final iconList = <IconData>[
     Icons.home,
     Icons.shopping_cart,

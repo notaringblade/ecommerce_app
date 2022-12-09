@@ -10,7 +10,7 @@ Widget categoryWidget(String name, Icon icon) {
       borderRadius: BorderRadius.all(Radius.circular(20))
     ),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
          icon,
         // Center(
