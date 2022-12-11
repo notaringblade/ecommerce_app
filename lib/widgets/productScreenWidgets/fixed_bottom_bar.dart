@@ -14,35 +14,39 @@ class FixedBottomBar extends StatelessWidget {
       color: Colors.transparent,
       elevation: 0,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
         child: Container(
           height: 80, //set your height here
           width: double.maxFinite, //set your width here
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius:
-                  BorderRadius.vertical(top: Radius.circular(20.0))),
-          child: Row(
-            // mainAxisSize: MainAxisSize.max,
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                child: Text(
-                  "\$ ${product.price}",
-                  style: Theme.of(context).textTheme.headline1,
+                  BorderRadius.all(Radius.circular(20.0))),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              // mainAxisSize: MainAxisSize.max,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  child: Text(
+                    "\$ ${product.price}",
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
                 ),
-              ),
-              FloatingActionButton.extended(
-                onPressed: () {},
-                label: Text("Add To Cart"),
-                icon: Icon(Icons.shopping_cart),
-                backgroundColor: Colors.black,
-              )
-            ],
+                FloatingActionButton.extended(
+                  onPressed: () {},
+                  label: const Text("Add To Cart"),
+                  icon: const Icon(Icons.shopping_cart),
+                  backgroundColor: Colors.black,
+                  elevation: 0,
+                )
+              ],
 
-            //add as many tabs as you want here
+              //add as many tabs as you want here
+            ),
           ),
         ),
       ),

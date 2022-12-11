@@ -36,11 +36,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_bloc: ^8.1.1
   equatable: ^2.0.5
   animated_bottom_navigation_bar: ^1.1.0
   fluttericon: ^2.0.0
   card_swiper: ^2.0.4
+  google_fonts: ^3.0.1
+  counter_button: ^1.0.1
+  cart_counter: ^0.0.1
+  cart_stepper: ^3.0.3
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:
@@ -72,7 +76,14 @@ flutter:
          - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
+  fonts:
+    - family: notosans
+      fonts:
+        - asset: assets/fonts/NotoSans-Regular.ttf
+    - family: notosansI
+      fonts:
+        - asset: assets/fonts/Noto_Sans/NotoSans-Italic.ttf
+    
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 

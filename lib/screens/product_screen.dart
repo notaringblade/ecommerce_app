@@ -3,6 +3,7 @@ import 'package:ecommerce_app/widgets/productScreenWidgets/fixed_bottom_bar.dart
 import 'package:ecommerce_app/widgets/productScreenWidgets/product_description.dart';
 import 'package:ecommerce_app/widgets/productScreenWidgets/product_image.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/config/capitalize.dart';
 
 class ProductScreen extends StatelessWidget {
   static const String routeName = '/productScreen';
@@ -21,9 +22,9 @@ class ProductScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
-          "Product",
-          style: TextStyle(color: Colors.black, fontSize: 28),
+        title:  Text(
+          "${product.name}".toCapitalized(),
+          style: Theme.of(context).textTheme.headline1,
         ),
         centerTitle: true,
         elevation: 0,
@@ -45,7 +46,7 @@ class ProductScreen extends StatelessWidget {
                   height: 240,
                   // width: 280,
                   child: ProductCarousel(product: product)),
-              Container(
+              SizedBox(
                 // height: 350,
                 child: ProductDescription(product: product),
               ),

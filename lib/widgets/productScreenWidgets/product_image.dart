@@ -21,18 +21,16 @@ class ProductCarousel extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         // Color colour = colors[index];
         return ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: Container(
-
-              // color: colors[index],
-              child: Image.network(
+          borderRadius: BorderRadius.circular(20),
+          child: SizedBox(
+            child: Image.network(
             product.images[index],
             fit: BoxFit.fill,
           )),
         );
       },
       itemCount: product.images.length,
-      viewportFraction: 0.95,
+      viewportFraction: 0.97,
       scale: 0.9,
     );
   }

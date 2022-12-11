@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: Color(0xFFD8D7DB),
-    fontFamily: '',
+    fontFamily: 'notosans',
     textTheme: textTheme(),
+    dividerColor: Colors.transparent,
+    
   );
 }
 
@@ -17,13 +19,15 @@ TextTheme textTheme(){
       fontSize: 28
     ),
     headline2: TextStyle(
-      color: Colors.grey,
+      color: Colors.black,
       // fontWeight: FontWeight.bold,
-      fontSize: 24
+      fontSize: 24,
     ),
     headline3: TextStyle(
       color: Colors.black,
       // fontWeight: FontWeight.bold,
+      fontFamily: 'notosansI',
+      fontStyle: FontStyle.italic,
       fontSize: 18
     ),
     headline4: TextStyle(

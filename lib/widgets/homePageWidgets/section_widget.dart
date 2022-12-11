@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class SectionWidget extends StatelessWidget {
@@ -15,14 +16,19 @@ class SectionWidget extends StatelessWidget {
       children: [
         Text(
           "${sectionname} Items",
-          style: TextStyle(
-              fontFamily: 'monospace',
-              fontWeight: FontWeight.bold,
-              fontSize: 20),
+          style: Theme.of(context)
+              .textTheme
+              .headline2!
+              .copyWith(color: Colors.black, fontSize: 24),
         ),
         InkWell(
           onTap: () {
             print("View ${sectionname}");
+            Navigator.pushNamed(
+              context,
+              '/${sectionname}',
+              arguments: Product.products,
+            );
           },
           child: Text(
             "View More>>",

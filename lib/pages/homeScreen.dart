@@ -14,7 +14,8 @@ class HomeScreen extends StatelessWidget {
 
   static Route route() {
     return MaterialPageRoute(
-        settings: RouteSettings(name: routeName), builder: (_) => HomeScreen());
+        settings: const RouteSettings(name: routeName),
+        builder: (_) => const HomeScreen());
   }
 
   @override
@@ -45,59 +46,62 @@ class HomeScreen extends StatelessWidget {
               // height: 100,
               child: categories(400),
             ),
-            
           ],
         ),
         Expanded(
           // flex: 1,
           child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
               child: Column(
-            children: [
-              Column(
                 children: [
-
-                        Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                    height: 160,
-                    child: carousel(),
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 10),
+                        height: 160,
+                        child: carousel(),
+                      ),
+                      const SectionWidget(
+                        sectionname: "Recommended",
+                      ),
+                      const Divider(
+                        thickness: 2,
+                        color: Colors.black,
+                      ),
+                      Container(
+                        height: 260,
+                        child: ItemList(
+                          products: Product.products
+                              .where((product) => product.isRecommended)
+                              .toList(),
+                        ),
+                      )
+                    ],
                   ),
-
-                  SectionWidget(sectionname: "Recommended",),
-                  Divider(
-                    thickness: 2,
-                    color: Colors.black,
-                  ),
-                  Container(
-                    height: 230,
-                    child: ItemList(
-                      products: Product.products
-                          .where((product) => product.isRecommended)
-                          .toList(),
-                    ),
+                  SizedBox(height: 20,),
+                  Column(
+                    children: [
+                      SectionWidget(
+                        sectionname: "Popular",
+                      ),
+                      const Divider(
+                        thickness: 2,
+                        color: Colors.black,
+                      ),
+                      Container(
+                        // width: 200,
+                        height: 260,
+                        child: ItemList(
+                          products: Product.products
+                              .where((product) => product.isPopular)
+                              .toList(),
+                        ),
+                      )
+                    ],
                   )
                 ],
-              ),
-              Column(
-                children: [
-                  SectionWidget(sectionname: "Popular",),
-                  Divider(
-                    thickness: 2,
-                    color: Colors.black,
-                  ),
-                  Container(
-                    // width: 200,
-                    height: 230,
-                    child: ItemList(
-                      products: Product.products
-                          .where((product) => product.isPopular)
-                          .toList(),
-                    ),
-                  )
-                ],
-              )
-            ],
-          )),
+              )),
         )
       ],
     );
