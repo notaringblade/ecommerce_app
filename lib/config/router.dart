@@ -1,8 +1,11 @@
 import 'package:ecommerce_app/models/product_model.dart';
+import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:ecommerce_app/pages/homeScreen.dart';
 import 'package:ecommerce_app/screens/popular_screen.dart';
 import 'package:ecommerce_app/screens/product_screen.dart';
 import 'package:ecommerce_app/screens/recommended_items.dart';
+import 'package:ecommerce_app/screens/search_screen.dart';
+import 'package:ecommerce_app/screens/sorted_by_category_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter{
@@ -11,14 +14,16 @@ class AppRouter{
     switch (settings.name) {
       case '/':
         return HomeScreen.route();
-      // case HomeScreen.routeName:
-      //   return HomeScreen.route();
       case ProductScreen.routeName:
         return ProductScreen.route(product: settings.arguments as Product);
       case RecommendedItems.routeName:
         return RecommendedItems.route();
       case PopularItems.routeName:
         return PopularItems.route();
+      case SortedScreen.routeName:
+        return SortedScreen.route(name: settings.arguments as String);
+      case SearchedScreen.routeName:
+        return SearchedScreen.route(name: settings.arguments as String);
       default:
         return _errorRoute();
     }

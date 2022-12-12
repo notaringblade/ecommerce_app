@@ -10,31 +10,37 @@ class SectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      // crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
       children: [
-        Text(
-          "${sectionname} Items",
-          style: Theme.of(context)
-              .textTheme
-              .headline2!
-              .copyWith(color: Colors.black, fontSize: 24),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "$sectionname Products",
+              style: Theme.of(context)
+                  .textTheme
+                  .headline2!
+                  .copyWith(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            InkWell(
+              onTap: () {
+                print("View ${sectionname}");
+                Navigator.pushNamed(
+                  context,
+                  '/${sectionname}',
+                  arguments: Product.products,
+                );
+              },
+              child: const Text(
+                "View More>>",
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
+
+          ],
         ),
-        InkWell(
-          onTap: () {
-            print("View ${sectionname}");
-            Navigator.pushNamed(
-              context,
-              '/${sectionname}',
-              arguments: Product.products,
-            );
-          },
-          child: Text(
-            "View More>>",
-            style: TextStyle(fontSize: 14),
-          ),
-        ),
+        SizedBox(height: 10,),
       ],
     );
   }

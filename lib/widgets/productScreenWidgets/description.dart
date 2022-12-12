@@ -45,7 +45,7 @@ class Description extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               ExpansionTile(
                 // flex: 1

@@ -8,6 +8,8 @@ import 'package:ecommerce_app/pages/menuScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'config/globals.dart' as globals;
+
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +40,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   //bottom bar
-  int selectedIndex = 0;
+  int selectedIndex = globals.index!;
   Icon? fabIcon = const Icon(
     Icons.search,
     color: Colors.black,
@@ -66,7 +68,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
+        // extendBody: true,
         backgroundColor: const Color(0xFFD8D7DB),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -87,7 +90,7 @@ class _HomeState extends State<Home> {
           elevation: 0,
           borderColor: Colors.black,
           borderWidth: 2,
-          backgroundColor: Colors.white54,
+          backgroundColor: Colors.white,
           activeIndex: selectedIndex,
           gapLocation: GapLocation.none,
           notchSmoothness: NotchSmoothness.softEdge,
@@ -96,6 +99,7 @@ class _HomeState extends State<Home> {
           // height: 60,
           onTap: (index) => setState(() {
             selectedIndex = index;
+            globals.index = index;
             // globals.changeColor(selectedIndex);
           }),
         )

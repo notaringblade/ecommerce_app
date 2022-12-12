@@ -19,7 +19,7 @@ class ItemList extends StatelessWidget {
       
 
       return Padding(
-        padding: EdgeInsets.only(right: 10.0, left: 10.0),
+        padding: EdgeInsets.only(right: 4.0, left: 0.0),
         child: ProductCard(product: products[index]),
         
       );

@@ -8,30 +8,35 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, '/productScreen', arguments: product);
-      },
-      child: Column(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(14),
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white70,
-                // border:  Border.all(color:Colors.black)
-              ),
+    return Card(
+      shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(15),
+      //set border radius more than 50% of height and width to make circle
+  ),
+      elevation: 4,
+      color: Colors.white,
+      // borderOnForeground: false,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, '/productScreen', arguments: product);
+        },
+        child: Column(
+          children: [
+            Container(
+              
+              color: Colors.transparent,
               width: 170,
-              height: 260,
+              height: 245,
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    color: Colors.white,
-                    height: 160,
+                    // color: Colors.white70,
+                    height: 140,
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(14.0),
+                      borderRadius: BorderRadius.circular(15.0),
                       child: Image.network(
                         "${product.imageUrl}",
                         fit: BoxFit.cover,
@@ -52,7 +57,7 @@ class ProductCard extends StatelessWidget {
                           "${product.name}".toCapitalized(),
                           style:
                               Theme.of(context).textTheme.headline4!.copyWith(
-                                    color: Colors.redAccent,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),
@@ -67,12 +72,17 @@ class ProductCard extends StatelessWidget {
                                 .textTheme
                                 .headline3!
                                 .copyWith(
-                                    fontWeight: FontWeight.bold, fontSize: 16, color: Colors.grey[600]),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Colors.grey[600]),
                           ),
                         ),
                         // SizedBox(
                         //   height: 10,
                         // ),
+                        SizedBox(
+                          height: 5,
+                        ),
                         Container(
                           child: Text(
                             "\$${product.price}",
@@ -80,7 +90,9 @@ class ProductCard extends StatelessWidget {
                                 .textTheme
                                 .headline3!
                                 .copyWith(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    color: Colors.cyan,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
                           ),
                         ),
                       ],
@@ -89,8 +101,8 @@ class ProductCard extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

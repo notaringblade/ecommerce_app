@@ -4,17 +4,22 @@ import 'package:ecommerce_app/widgets/cartScreenWidgets/cart_item_info.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_button/counter_button.dart';
 
-class CartItem extends StatelessWidget {
+class CartItem extends StatefulWidget {
   final Product product;
-  CartItem({Key? key, required this.product}) : super(key: key);
+  final Function refresh;
+  const CartItem({Key? key, required this.product, required this.refresh}) : super(key: key);
 
-  int _counterLimit = 1;
+  @override
+  State<CartItem> createState() => _CartItemState();
+}
+
+class _CartItemState extends State<CartItem> {
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/productScreen', arguments: product);
+        Navigator.pushNamed(context, '/productScreen', arguments: widget.product);
       },
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -23,9 +28,9 @@ class CartItem extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               color: Colors.white,
             ),
-            height: 100,
+            height: 80,
             child: Container(
-              child: CartItemInfo(product: product),
+              child: CartItemInfo(product: widget.product, refresh: widget.refresh,),
             )),
       ),
     );

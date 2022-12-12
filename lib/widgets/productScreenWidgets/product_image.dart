@@ -25,7 +25,7 @@ class ProductCarousel extends StatelessWidget {
           child: SizedBox(
             child: Image.network(
             product.images[index],
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           )),
         );
       },

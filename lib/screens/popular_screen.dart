@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/widgets/grid_list.dart';
-import 'package:ecommerce_app/widgets/homePageWidgets/popular_items_widget.dart';
+import 'package:ecommerce_app/widgets/homePageWidgets/item_list.dart';
 import 'package:flutter/material.dart';
 
 class PopularItems extends StatelessWidget {

@@ -36,26 +36,21 @@ class ProductScreen extends StatelessWidget {
       body: SingleChildScrollView(
         // mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.start,
-        child: Expanded(
-          flex: 1,
-          child: Column(
-            children: [
-              Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                  height: 240,
-                  // width: 280,
-                  child: ProductCarousel(product: product)),
-              SizedBox(
-                // height: 350,
-                child: ProductDescription(product: product),
-              ),
-              // SizedBox(height: 10,)
-            ],
-          ),
+        child: Column(
+          children: [
+            Container(
+                height: 220,
+                // width: 280,
+                child: ProductCarousel(product: product)),
+            SizedBox(
+              // height: 350,
+              child: ProductDescription(product: product),
+            ),
+            // SizedBox(height: 10,)
+          ],
         ),
       ),
-      bottomNavigationBar: FixedBottomBar(product: product),
+      bottomNavigationBar: Container(child: FixedBottomBar(product: product)),
     );
   }
 }
