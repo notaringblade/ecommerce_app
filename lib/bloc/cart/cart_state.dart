@@ -1,5 +1,7 @@
 // part of 'cart_bloc.dart';
 
+// import 'package:ecommerce_app/models/cart_model.dart';
+
 // abstract class CartState extends Equatable {
 //   const CartState();
   

@@ -45,6 +45,8 @@ dependencies:
   cart_counter: ^0.0.1
   cart_stepper: ^3.0.3
   flutter_bloc: ^8.0.1
+  modal_bottom_sheet: ^2.1.2
+  bottom_sheet_bar: ^2.3.8
 
 dev_dependencies:
   flutter_test:

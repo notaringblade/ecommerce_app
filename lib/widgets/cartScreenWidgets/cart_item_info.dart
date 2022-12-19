@@ -41,7 +41,7 @@ class _CartItemInfoState extends State<CartItemInfo> {
                     child: Text(
                   widget.product.name.toCapitalized(),
                   style: Theme.of(context).textTheme.headline4!.copyWith(
-                        color: Colors.redAccent,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         overflow: TextOverflow.ellipsis,
@@ -68,7 +68,7 @@ class _CartItemInfoState extends State<CartItemInfo> {
                     style: Theme.of(context)
                         .textTheme
                         .headline3!
-                        .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
+                        .copyWith(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.cyan),
                   ),
                 ),
               ],

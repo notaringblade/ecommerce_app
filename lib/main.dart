@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/bloc/cart/cart_bloc.dart';
+import 'package:ecommerce_app/bloc/history/history_bloc.dart';
 import 'package:ecommerce_app/config/router.dart';
 import 'package:ecommerce_app/config/theme.dart';
+import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/pages/accountScreen.dart';
 import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:ecommerce_app/pages/homeScreen.dart';
@@ -9,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'config/globals.dart' as globals;
-
 
 void main() {
   runApp(const MyApp());
@@ -21,12 +22,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const Home(),
-      onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: HomeScreen.routeName,
-      theme: theme(),
-      // title: "Ecommerce",
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              HistoryBloc()..add(const LoadHistory(products: [])),
+        ),
+      ],
+      child: MaterialApp(
+        home: const Home(),
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        initialRoute: HomeScreen.routeName,
+        theme: theme(),
+        // title: "Ecommerce",
+      ),
     );
   }
 }

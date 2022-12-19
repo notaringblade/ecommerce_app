@@ -17,16 +17,24 @@ class ProductCarousel extends StatelessWidget {
       pagination: const SwiperPagination(
           alignment: Alignment.bottomCenter,
           builder: DotSwiperPaginationBuilder(
-              color: Colors.white, activeColor: Colors.black)),
+              color: Colors.black, activeColor: Colors.redAccent)),
       itemBuilder: (BuildContext context, int index) {
         // Color colour = colors[index];
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: SizedBox(
-            child: Image.network(
-            product.images[index],
-            fit: BoxFit.cover,
-          )),
+        return Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Image.network(
+                product.images[index],
+                fit: BoxFit.contain,
+                          ),
+              )),
+          ),
         );
       },
       itemCount: product.images.length,

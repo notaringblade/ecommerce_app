@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/widgets/categoryWidgets.dart';
+import 'package:ecommerce_app/widgets/common/categoryWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/rpg_awesome_icons.dart';
 

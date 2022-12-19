@@ -28,7 +28,7 @@ class _CartItemState extends State<CartItem> {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               color: Colors.white,
             ),
-            height: 80,
+            height: 90,
             child: Container(
               child: CartItemInfo(product: widget.product, refresh: widget.refresh,),
             )),

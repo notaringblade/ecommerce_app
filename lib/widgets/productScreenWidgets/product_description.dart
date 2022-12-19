@@ -13,8 +13,13 @@ class ProductDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Description(product: product);
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 3, vertical: 4),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        elevation: 4,
+        child: Description(product: product),
+      ),
+    );
   }
 }
-
-

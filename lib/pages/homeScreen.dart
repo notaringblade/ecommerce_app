@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 0, vertical: 10),
-                          height: 160,
+                          height: 180,
                           child: carousel(),
                         ),
                         const SectionWidget(

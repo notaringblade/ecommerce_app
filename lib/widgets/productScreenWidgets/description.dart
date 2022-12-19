@@ -37,11 +37,21 @@ class Description extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline1,
                 ),
               ),
-              Container(
-                child: Text(
-                  " ${product.category}",
-                  style: Theme.of(context).textTheme.headline3,
-                  // textAlign: TextAlign.start,
+              InkWell(
+                onTap: () {
+                  print("View ${product.category}");
+                Navigator.pushNamed(
+                  context,
+                  '/Sorted',
+                  arguments: product.category,
+                );
+                },
+                child: Container(
+                  child: Text(
+                    " ${product.category}",
+                    style: Theme.of(context).textTheme.headline3,
+                    // textAlign: TextAlign.start,
+                  ),
                 ),
               ),
               SizedBox(
@@ -109,10 +119,10 @@ class Description extends StatelessWidget {
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: product.features!.length,
+                      itemCount: product.features.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          child: Text(" — ${product.features![index]}", style: Theme.of(context).textTheme.headline4,),
+                          child: Text(" — ${product.features[index]}", style: Theme.of(context).textTheme.headline4,),
                         );
                       },
                     ),
