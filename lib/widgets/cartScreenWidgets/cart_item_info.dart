@@ -26,11 +26,14 @@ class _CartItemInfoState extends State<CartItemInfo> {
               crossAxisAlignment: CrossAxisAlignment.center,
 
           children: [
-            Image.network(
-              "${widget.product.imageUrl}",
-              fit: BoxFit.fill,
+            Container(
+              width: 140,
+              child: Image.network(
+                "${widget.product.imageUrl}",
+                fit: BoxFit.fill,
+              ),
             ),
-            SizedBox(width: 20,),
+            SizedBox(width: 15,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,

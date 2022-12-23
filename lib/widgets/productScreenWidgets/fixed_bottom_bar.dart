@@ -2,6 +2,8 @@ import 'package:ecommerce_app/models/cart_model.dart';
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../bloc/cart/cart_bloc.dart';
 import '../../config/globals.dart' as globals;
 
 class FixedBottomBar extends StatefulWidget {
@@ -42,38 +44,32 @@ class _FixedBottomBarState extends State<FixedBottomBar> {
                     style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
-                Builder(builder: (context) {
-                  if (globals.index != 1) {
-                    return FloatingActionButton.extended(
-                      onPressed: () {
-                        Cart.products.add(widget.product);
-                        const snackBar = SnackBar(
-                          content: const Text('Added To Cart'),
-                          backgroundColor: (Colors.redAccent),
-                          dismissDirection: DismissDirection.horizontal,
-                          duration: Duration(seconds: 1),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        Navigator.pop(context);
+                     BlocListener<CartBloc, CartState>(
+                      listener: (context, state) {
+                        // TODO: implement listener
                       },
-                      label: const Text("Add To Cart"),
-                      icon: const Icon(Icons.shopping_cart),
-                      backgroundColor: Colors.black,
-                      elevation: 0,
-                    );
-                  } else {
-                    return Container(
-                        child: Text(
-                      "Already In Cart",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline2!
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ));
-                    // return Text("");
-                  }
-                })
-              ],
+                      child: FloatingActionButton.extended(
+                        onPressed: () {
+                          context
+                              .read<CartBloc>()
+                              .add(AddProduct(widget.product));
+                          // Cart.products.add(widget.product);
+                          const snackBar = SnackBar(
+                            content: const Text('Added To Cart'),
+                            backgroundColor: (Colors.redAccent),
+                            dismissDirection: DismissDirection.horizontal,
+                            duration: Duration(seconds: 1),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Navigator.pop(context);
+                        },
+                        label: const Text("Add To Cart"),
+                        icon: const Icon(Icons.shopping_cart),
+                        backgroundColor: Colors.black,
+                        elevation: 0,
+                      )
+                    )
+                  ],
             ),
           ),
         ),

@@ -27,8 +27,8 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
         products: List.from(state.products)..insert(0,event.product),
       ));
       }
-      print("${event.product.name}");
-      print("${state.products}");
+      // print("${event.product.name}");
+      // print("${state.products}");
     }
   }
 }

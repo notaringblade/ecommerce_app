@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               HistoryBloc()..add(const LoadHistory(products: [])),
         ),
+        BlocProvider(create: (context) =>
+              CartBloc()..add(LoadCart())
+        )
       ],
       child: MaterialApp(
         home: const Home(),

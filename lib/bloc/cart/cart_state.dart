@@ -1,32 +1,31 @@
-// part of 'cart_bloc.dart';
+part of 'cart_bloc.dart';
 
-// import 'package:ecommerce_app/models/cart_model.dart';
-
-// abstract class CartState extends Equatable {
-//   const CartState();
+abstract class CartState extends Equatable {
+  const CartState();
   
-//   @override
-//   List<Object> get props => [];
-// }
+  @override
+  List<Object> get props => [];
+}
 
-// class CartLoading extends CartState {
-  
-//   @override
-//   List<Object> get props => [];
-// }
+class CartLoading extends CartState {
 
-// class CartLoaded extends CartState {
-//   final Cart cart;
+  @override
+  List<Object> get props => [];
+}
 
-//   const CartLoaded({this.cart = const Cart()});
+class CartLoaded extends CartState {
 
-//   @override
-//   List<Object> get props => [cart];
-// }
+  final Cart cart;
 
-// class CartError extends CartState {
+   const CartLoaded({this.cart = const Cart()});
 
-//   @override
-//   List<Object> get props => [];
-// }
 
+  @override
+  List<Object> get props => [cart];
+}
+
+class CartError extends CartState {
+
+  @override
+  List<Object> get props => [];
+}
