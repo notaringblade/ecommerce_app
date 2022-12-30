@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class ItemList extends StatelessWidget {
   final List<Product> products;
+  final int itemCount;
   const ItemList({
     Key? key,
+    this.itemCount = 3,
     required this.products
   }) : super(key: key);
 
@@ -13,7 +15,7 @@ class ItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: ListView.builder(
-    itemCount: 3,
+    itemCount: itemCount,
     scrollDirection: Axis.horizontal,
     itemBuilder: (context, index) {
       

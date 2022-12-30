@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/models/product_model.dart';
-import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:ecommerce_app/pages/homeScreen.dart';
+import 'package:ecommerce_app/screens/checkout_screen.dart';
+import 'package:ecommerce_app/screens/landing_screen.dart';
 import 'package:ecommerce_app/screens/popular_screen.dart';
 import 'package:ecommerce_app/screens/product_screen.dart';
 import 'package:ecommerce_app/screens/recommended_items.dart';
@@ -14,6 +15,8 @@ class AppRouter{
     switch (settings.name) {
       case '/':
         return HomeScreen.route();
+        case LandingScreen.routeName:
+        return LandingScreen.route();
       case ProductScreen.routeName:
         return ProductScreen.route(product: settings.arguments as Product);
       case RecommendedItems.routeName:
@@ -24,6 +27,8 @@ class AppRouter{
         return SortedScreen.route(name: settings.arguments as String);
       case SearchedScreen.routeName:
         return SearchedScreen.route(name: settings.arguments as String);
+      case CheckoutScreen.routeName:
+        return CheckoutScreen.route();
       default:
         return _errorRoute();
     }

@@ -1,12 +1,12 @@
 import 'package:ecommerce_app/bloc/cart/cart_bloc.dart';
 import 'package:ecommerce_app/bloc/history/history_bloc.dart';
+import 'package:ecommerce_app/bloc/login/login_bloc.dart';
 import 'package:ecommerce_app/config/router.dart';
 import 'package:ecommerce_app/config/theme.dart';
-import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/pages/accountScreen.dart';
 import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:ecommerce_app/pages/homeScreen.dart';
-import 'package:ecommerce_app/pages/menuScreen.dart';
+import 'package:ecommerce_app/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,10 +30,14 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(create: (context) =>
               CartBloc()..add(LoadCart())
-        )
+        ),
+        BlocProvider(create: (context) =>
+              LoginBloc()
+        ),
+        
       ],
       child: MaterialApp(
-        home: const Home(),
+        home: const LandingScreen(),
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: HomeScreen.routeName,
         theme: theme(),
@@ -61,20 +65,17 @@ class _HomeState extends State<Home> {
     Icons.home,
     Icons.shopping_cart,
     Icons.person,
-    Icons.menu_open,
   ];
   List<Widget> pages = const [
     HomeScreen(),
     CartScreen(),
     AccountScreen(),
-    MenuScreen(),
   ];
 
   List<String> names = const [
     "Home",
     "Cart",
     "Account",
-    "Menu",
   ];
 
   @override
@@ -86,14 +87,14 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text(
-            "${names[selectedIndex]}",
+            "${names[globals.index!]}",
             style: Theme.of(context).textTheme.headline1,
           ),
           centerTitle: true,
           elevation: 0,
           toolbarHeight: 55,
         ),
-        body: pages[selectedIndex],
+        body: IndexedStack(children: [pages[globals.index!]]),
         bottomNavigationBar: AnimatedBottomNavigationBar(
           icons: iconList,
           inactiveColor: Colors.black,
@@ -103,15 +104,15 @@ class _HomeState extends State<Home> {
           borderColor: Colors.black,
           borderWidth: 2,
           backgroundColor: Colors.white,
-          activeIndex: selectedIndex,
+          activeIndex: globals.index!,
           gapLocation: GapLocation.none,
           notchSmoothness: NotchSmoothness.softEdge,
           leftCornerRadius: 20,
           rightCornerRadius: 20,
           // height: 60,
           onTap: (index) => setState(() {
-            selectedIndex = index;
             globals.index = index;
+            // globals.index = index;
             // globals.changeColor(selectedIndex);
           }),
         )

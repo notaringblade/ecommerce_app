@@ -69,6 +69,7 @@ class ProductCard extends StatelessWidget {
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                           )),
                           // SizedBox(

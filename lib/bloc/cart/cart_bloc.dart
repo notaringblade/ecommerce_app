@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:ecommerce_app/bloc/history/history_bloc.dart';
 import 'package:ecommerce_app/models/cart_model.dart';
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:equatable/equatable.dart';

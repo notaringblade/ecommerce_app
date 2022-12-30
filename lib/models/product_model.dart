@@ -103,7 +103,7 @@ class Product extends Equatable {
           'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-model-unselect-gallery-2-202209_GEO_EMEA?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1660744859118',
         ]),
     const Product(
-        name: 'laptop',
+        name: 'Mac',
         category: 'computers',
         imageUrl:
             "https://media.istockphoto.com/photos/modern-laptop-with-empty-screen-on-white-background-mockup-design-picture-id1182241805?b=1&k=20&m=1182241805&s=612x612&w=0&h=8LGcGIlPCE1pEOKOqrN4WP-UsXobLqc4EnqC71niFrc=",
@@ -116,7 +116,6 @@ class Product extends Equatable {
           "https://media.istockphoto.com/photos/modern-laptop-with-empty-screen-on-white-background-mockup-design-picture-id1182241805?b=1&k=20&m=1182241805&s=612x612&w=0&h=8LGcGIlPCE1pEOKOqrN4WP-UsXobLqc4EnqC71niFrc=",
           "https://media.istockphoto.com/photos/modern-laptop-with-empty-screen-on-white-background-mockup-design-picture-id1182241805?b=1&k=20&m=1182241805&s=612x612&w=0&h=8LGcGIlPCE1pEOKOqrN4WP-UsXobLqc4EnqC71niFrc=",
         ]),
-    
     const Product(
         name: 'rolex',
         category: 'watches',
@@ -132,5 +131,35 @@ class Product extends Equatable {
           'https://content.rolex.com/dam/2022-11/upright-bba-with-shadow/m126900-0001.png?impolicy=v6-upright&imwidth=420',
 
         ]),
+    const Product(
+        name: 'ROG',
+        category: 'computers',
+        imageUrl: "https://rog.asus.com/media/1578096205427.webp",
+        price: 999.0,
+        isRecommended: false,
+        isPopular: true,
+        description: "This is the Laptop Description",
+        images: [
+          "https://rog.asus.com/media/1578096205427.webp",
+          "https://rog.asus.com/media/1578096205427.webp",
+          "https://rog.asus.com/media/1578096205427.webp",
+          "https://rog.asus.com/media/1578096205427.webp",
+        ]),
+
+        const Product(
+        name: 'ROG',
+        category: 'computers',
+        imageUrl: "https://rog.asus.com/media/1578096205427.webp",
+        price: 999.0,
+        isRecommended: false,
+        isPopular: true,
+        description: "This is the Laptop Description",
+        images: [
+          "https://rog.asus.com/media/1578096205427.webp",
+          "https://rog.asus.com/media/1578096205427.webp",
+          "https://rog.asus.com/media/1578096205427.webp",
+          "https://rog.asus.com/media/1578096205427.webp",
+        ]),
+      
   ];
 }

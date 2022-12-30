@@ -37,10 +37,10 @@ class SearchedScreen extends StatelessWidget {
         ),
         body: Builder(builder: (context) {
           if (Product.products
-              .where((product) => product.name == name.toLowerCase())
+              .where((product) => product.name.toLowerCase() == name.toLowerCase())
               .isNotEmpty) {
             Product _foundProduct = Product.products.firstWhere(
-              (product) => product.name == name.toLowerCase(),
+              (product) => product.name.toLowerCase() == name.toLowerCase(),
             
             );
             print(_foundProduct.category);
@@ -52,21 +52,42 @@ class SearchedScreen extends StatelessWidget {
                 Expanded(
                   child: GridList(
                     products: Product.products
-                        .where((product) => product.name == name.toLowerCase())
+                        .where((product) => product.name.toLowerCase().contains(name.toLowerCase()))
                         .toList(),
 
                   ),
                 ),
-                LabelText(labelText: "Other Products found in " "(${_foundProduct.category.toCapitalized()})" " Category:"),
-                Expanded(
-                  child: GridList(
+                LabelText(labelText: "Similar Products"),
+                Container(
+                  height: 260,
+                  child: ItemList(
                       products: Product.products
-                          .where((product) => product.category == _foundProduct.category && product.name != name.toLowerCase())
+                          .where((product) => product.category == _foundProduct.category.toLowerCase())
                           .toList()),
                 ),
               ],
             );
-          } else {
+          } 
+          else if (Product.products
+              .where((product) => product.category.toLowerCase() == name.toLowerCase())
+              .isNotEmpty) {
+                return  Column(
+              
+              children: [
+                // Search(),
+                Expanded(
+                  child: GridList(
+                    products: Product.products
+                        .where((product) => product.category.toLowerCase().contains(name.toLowerCase()))
+                        .toList(),
+
+                  ),
+                ),
+              ],
+            );
+
+          }
+          else {
             return Center(
               child: Text("No Product that meets this description"),
             );

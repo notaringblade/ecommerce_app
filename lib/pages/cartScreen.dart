@@ -24,8 +24,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Container(
-      height: 660,
+      height: 700,
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
       child: Column(
         children: [
@@ -69,9 +68,9 @@ class _CartScreenState extends State<CartScreen> {
             indent: 40,
             endIndent: 40,
           ),
-          CartTotal()
+           CartTotal()
         ],
       ),
-    ));
+    );
   }
 }

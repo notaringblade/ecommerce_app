@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/widgets/homePageWidgets/carousel_widget.dart';
 import 'package:ecommerce_app/widgets/homePageWidgets/categories.dart';
-import 'package:ecommerce_app/widgets/homePageWidgets/filterButton.dart';
 import 'package:ecommerce_app/widgets/homePageWidgets/item_list.dart';
 import 'package:ecommerce_app/widgets/homePageWidgets/searchBar.dart';
 import 'package:ecommerce_app/widgets/homePageWidgets/section_widget.dart';
