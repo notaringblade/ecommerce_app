@@ -8,6 +8,7 @@ import '../config/globals.dart' as globals;
 
 import '../bloc/cart/cart_bloc.dart';
 
+
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
   static const String routeName = '/Checkout';
@@ -63,9 +64,9 @@ class CheckoutScreen extends StatelessWidget {
                                             .copyWith(
                                                 fontWeight: FontWeight.bold)),
                                     _buildTextFormField(context, nameController,
-                                        "", state.username),
+                                        "", state.username, true),
                                     _buildTextFormField(
-                                        context, emailController, "Email", ""),
+                                        context, emailController, "Email", "", false),
                                   ],
                                 ),
                               ),
@@ -79,13 +80,13 @@ class CheckoutScreen extends StatelessWidget {
                                             .copyWith(
                                                 fontWeight: FontWeight.bold)),
                                     _buildTextFormField(context,
-                                        addressController, "Address", ""),
+                                        addressController, "Address", "", false),
                                     _buildTextFormField(
-                                        context, stateController, "State", ""),
+                                        context, stateController, "State", "", false),
                                     _buildTextFormField(
-                                        context, cityController, "City", ""),
+                                        context, cityController, "City", "", false),
                                     _buildTextFormField(context,
-                                        zipCodeController, "Zip Code", ""),
+                                        zipCodeController, "Zip Code", "", false),
                                   ],
                                 ),
                               ),
@@ -220,12 +221,13 @@ class CheckoutScreen extends StatelessWidget {
   }
 
   _buildTextFormField(BuildContext context, TextEditingController controller,
-      String s, String init) {
+      String s, String init, bool isReadOnly) {
     return Padding(
         padding: const EdgeInsets.all(8),
         child: TextFormField(
           autofocus: false,
           controller: TextEditingController(text: init),
+          readOnly: isReadOnly,
           decoration: InputDecoration(
               filled: true,
               label: Text(s),
