@@ -63,7 +63,7 @@ dev_dependencies:
 
 flutter_native_splash:
   # color: '#ffffff'
-  background_image: 'assets/images/splash.jpg'
+  background_image: 'assets/images/splash.jpeg'
 
 
 # The following section is specific to Flutter packages.
