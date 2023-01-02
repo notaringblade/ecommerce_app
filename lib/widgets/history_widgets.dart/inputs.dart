@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/bloc/login/login_bloc.dart';
-import 'package:ecommerce_app/widgets/common/default_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +25,7 @@ class Inputs extends StatelessWidget {
                    
                   
                 )),
-            SizedBox(
+           const SizedBox(
               height: 10,
             ),
           ],

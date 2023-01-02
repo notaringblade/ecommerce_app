@@ -11,7 +11,7 @@ class LabelText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "$labelText",
+      labelText,
       style: theme().textTheme.headline2!.copyWith(fontSize: 20, fontWeight: FontWeight.bold),
     );
   }

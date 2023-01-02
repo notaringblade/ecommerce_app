@@ -1,10 +1,7 @@
-import 'package:ecommerce_app/models/cart_model.dart';
 import 'package:ecommerce_app/models/product_model.dart';
-import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/cart/cart_bloc.dart';
-import '../../config/globals.dart' as globals;
 
 class FixedBottomBar extends StatefulWidget {
   const FixedBottomBar({
@@ -46,7 +43,6 @@ class _FixedBottomBarState extends State<FixedBottomBar> {
                 ),
                      BlocListener<CartBloc, CartState>(
                       listener: (context, state) {
-                        // TODO: implement listener
                       },
                       child: FloatingActionButton.extended(
                         onPressed: () {
@@ -55,7 +51,7 @@ class _FixedBottomBarState extends State<FixedBottomBar> {
                               .add(AddProduct(widget.product));
                           // Cart.products.add(widget.product);
                           const snackBar = SnackBar(
-                            content: const Text('Added To Cart'),
+                            content: Text('Added To Cart'),
                             backgroundColor: (Colors.redAccent),
                             dismissDirection: DismissDirection.horizontal,
                             duration: Duration(seconds: 1),

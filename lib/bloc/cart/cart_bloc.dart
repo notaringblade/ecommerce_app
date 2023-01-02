@@ -17,7 +17,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     emit(CartLoading());
 
     await Future<void>.delayed(const Duration(seconds: 1));
-    emit(CartLoaded());
+    emit(const CartLoaded());
   }
 
   void _onAddProduct(AddProduct event, Emitter<CartState> emit){

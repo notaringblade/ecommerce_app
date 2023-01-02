@@ -20,18 +20,17 @@ class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-    child: Container(
+    child: SizedBox(
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
-    // TODO: implement listener
         },
         child: Padding(
-    padding: EdgeInsets.all(8),
+    padding: const EdgeInsets.all(8),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 70,
+        const SizedBox(
+          height: 120,
         ),
         Center(
           child: Text(
@@ -43,7 +42,7 @@ class LoginWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         Column(
@@ -54,7 +53,7 @@ class LoginWidget extends StatelessWidget {
               sectionname: "username",
               controller: username,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             DefaultInputField(
@@ -63,7 +62,7 @@ class LoginWidget extends StatelessWidget {
               secret: true,
               controller: password,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
   
@@ -75,21 +74,21 @@ class LoginWidget extends StatelessWidget {
               child: Container(
                 // padding: EdgeInsets.all(8),
                 width: 350,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.green,
                   borderRadius: BorderRadius.all(
                     Radius.circular(14),
                   ),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Text("Login", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 16),),
+                  padding: const EdgeInsets.all(10),
+                  child: const Text("Login", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 16),),
                 ),
               ),
             )
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(
@@ -108,7 +107,7 @@ class LoginWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold)))
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(
@@ -117,17 +116,19 @@ class LoginWidget extends StatelessWidget {
           children: [
             OutlinedButton(
               onPressed: () {
-                context.read<LoginBloc>().add(LoggingInEvent("Google", "Login"));
+                context.read<LoginBloc>().add(const LoggingInEvent("Google", "Login"));
+                onTap();
               },
-              child: FaIcon(FontAwesomeIcons.google, color: Colors.black,),
-              style: OutlinedButton.styleFrom(side: BorderSide(width: 2)),
+              style: OutlinedButton.styleFrom(side: const BorderSide(width: 2)),
+              child: const FaIcon(FontAwesomeIcons.google, color: Colors.black,),
             ),
             OutlinedButton(
               onPressed: () {
-                context.read<LoginBloc>().add(LoggingInEvent("FaceBook", "Login"));
+                context.read<LoginBloc>().add(const LoggingInEvent("FaceBook", "Login"));
+                onTap();
               },
-              child: FaIcon(FontAwesomeIcons.facebook, color: Colors.black,),
-              style: OutlinedButton.styleFrom(side: BorderSide(width: 2)),
+              style: OutlinedButton.styleFrom(side: const BorderSide(width: 2)),
+              child: const FaIcon(FontAwesomeIcons.facebook, color: Colors.black,),
             ),
           ],
         )

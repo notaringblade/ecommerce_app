@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/widgets/common/categoryWidgets.dart';
+import 'package:ecommerce_app/widgets/common/category_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/rpg_awesome_icons.dart';
 
@@ -10,7 +10,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       height: 50,
       width: 400,
       child: ListView(

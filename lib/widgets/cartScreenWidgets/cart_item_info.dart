@@ -1,4 +1,3 @@
-import 'package:cart_stepper/cart_stepper.dart';
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/widgets/cartScreenWidgets/counter.dart';
 import 'package:flutter/material.dart';
@@ -26,20 +25,20 @@ class _CartItemInfoState extends State<CartItemInfo> {
               crossAxisAlignment: CrossAxisAlignment.center,
 
           children: [
-            Container(
+            SizedBox(
               width: 140,
               child: Image.network(
-                "${widget.product.imageUrl}",
+                widget.product.imageUrl,
                 fit: BoxFit.fill,
               ),
             ),
-            SizedBox(width: 15,),
+            const SizedBox(width: 15,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               
               children: [
-                Container(
+                SizedBox(
                   width: 150,
                     child: Text(
                   widget.product.name.toCapitalized(),
@@ -53,7 +52,7 @@ class _CartItemInfoState extends State<CartItemInfo> {
                 // SizedBox(
                 //   height: 10,
                 // ),
-                Container(
+                SizedBox(
                   child: Text(
                     widget.product.category,
                     style: Theme.of(context).textTheme.headline2!.copyWith(
@@ -65,7 +64,7 @@ class _CartItemInfoState extends State<CartItemInfo> {
                 // SizedBox(
                 //   height: 10,
                 // ),
-                Container(
+                SizedBox(
                   child: Text(
                     "\$${widget.product.price}",
                     style: Theme.of(context)

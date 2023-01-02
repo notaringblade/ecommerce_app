@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/config/theme.dart';
-import 'package:ecommerce_app/models/cart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +18,7 @@ class CartTotal extends StatelessWidget {
             child: Container(
               // height: 230,
               // color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: Column(
                 children: [
                   Row(
@@ -89,22 +88,22 @@ class CartTotal extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 59,
                   ),
                   Builder(
                     builder: (context) {
-                      if(state.cart.products.length != 0){
+                      if(state.cart.products.isNotEmpty){
 
-                      return Container(
+                      return SizedBox(
                         // alignment: Alignment.bottomCenter,
                         child: FloatingActionButton.extended(
                           backgroundColor: Colors.redAccent,
                           onPressed: () {
                             Navigator.pushNamed(context, "/Checkout");
                           },
-                          label: Text("Proceed To Checkout"),
-                          icon: Icon(Icons.shopping_cart_checkout),
+                          label: const Text("Proceed To Checkout"),
+                          icon: const Icon(Icons.shopping_cart_checkout),
                           highlightElevation: 0,
                         ),
                       );
@@ -118,7 +117,7 @@ class CartTotal extends StatelessWidget {
             ),
           );
         } else if (state is CartLoading) {
-          return Center();
+          return const Center();
         } else {
           return Center(
             child: Text(

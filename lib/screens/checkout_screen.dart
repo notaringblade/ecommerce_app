@@ -20,6 +20,7 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     final TextEditingController emailController = TextEditingController();
     final TextEditingController nameController = TextEditingController();
     final TextEditingController addressController = TextEditingController();
@@ -48,66 +49,73 @@ class CheckoutScreen extends StatelessWidget {
                   child: Expanded(
                     child: BlocBuilder<LoginBloc, LoginState>(
                       builder: (context, state) {
-                        if(state is LoggedIn){
-
-                        return Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(
-                                              child: Column(
-                                                children: [
-                                                  Text("User Info",
-                                                      style: theme()
-                                                          .textTheme
-                                                          .headline2!
-                                                          .copyWith(fontWeight: FontWeight.bold)),
-                                                  _buildTextFormField(
-                                                      context, nameController, "", state.username),
-                                                  _buildTextFormField(
-                                                      context, emailController, "Email",""),
-                                                ],
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              child: Column(
-                                                children: [
-                                                  Text("Delivery Information",
-                                                      style: theme()
-                                                          .textTheme
-                                                          .headline2!
-                                                          .copyWith(fontWeight: FontWeight.bold)),
-                                                  _buildTextFormField(
-                                                      context, addressController, "Address",""),
-                                                  _buildTextFormField(
-                                                      context, stateController, "State",""),
-                                                  _buildTextFormField(
-                                                      context, cityController, "City",""),
-                                                  _buildTextFormField(
-                                                      context, zipCodeController, "Zip Code", ""),
-                                                ],
-                                              ),
-                                            ),
-                                            SizedBox(
-                                                child: Column(
-                                              children: [
-                                                Text("Order Summary",
-                                                    style: theme()
-                                                        .textTheme
-                                                        .headline2!
-                                                        .copyWith(fontWeight: FontWeight.bold)),
-                                                Container(
-                                                    height: 260,
-                                                    child: ItemList(
-                                                      products: cstate.cart.products,
-                                                      itemCount: cstate.cart.products.length,
-                                                    ))
-                                              ],
-                                            ))
-                                          ],
-                                        );
-                        }else{
-                          return  Center(child: Text("Pleases Log in To Continue", style: theme().textTheme.displayMedium,),);
+                        if (state is LoggedIn) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                child: Column(
+                                  children: [
+                                    Text("User Info",
+                                        style: theme()
+                                            .textTheme
+                                            .headline2!
+                                            .copyWith(
+                                                fontWeight: FontWeight.bold)),
+                                    _buildTextFormField(context, nameController,
+                                        "", state.username),
+                                    _buildTextFormField(
+                                        context, emailController, "Email", ""),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  children: [
+                                    Text("Delivery Information",
+                                        style: theme()
+                                            .textTheme
+                                            .headline2!
+                                            .copyWith(
+                                                fontWeight: FontWeight.bold)),
+                                    _buildTextFormField(context,
+                                        addressController, "Address", ""),
+                                    _buildTextFormField(
+                                        context, stateController, "State", ""),
+                                    _buildTextFormField(
+                                        context, cityController, "City", ""),
+                                    _buildTextFormField(context,
+                                        zipCodeController, "Zip Code", ""),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                  child: Column(
+                                children: [
+                                  Text("Order Summary",
+                                      style: theme()
+                                          .textTheme
+                                          .headline2!
+                                          .copyWith(
+                                              fontWeight: FontWeight.bold)),
+                                  SizedBox(
+                                      height: 260,
+                                      child: ItemList(
+                                        products: cstate.cart.products,
+                                        itemCount: cstate.cart.products.length,
+                                      ))
+                                ],
+                              ))
+                            ],
+                          );
+                        } else {
+                          return Center(
+                            child: Text(
+                              "Pleases Log in To Continue",
+                              style: theme().textTheme.displayMedium,
+                            ),
+                          );
                         }
                       },
                     ),
@@ -149,7 +157,7 @@ class CheckoutScreen extends StatelessWidget {
                                       ),
                                     );
                                   } else {
-                                    return Center(
+                                    return const Center(
                                       child: Text("Error"),
                                     );
                                   }
@@ -158,29 +166,31 @@ class CheckoutScreen extends StatelessWidget {
                               BlocBuilder<LoginBloc, LoginState>(
                                 builder: (context, state) {
                                   if (state is LoggedIn) {
-                                    return Builder(
-                                      builder: (context) {
-                                        return FloatingActionButton.extended(
-                                          onPressed: () {},
-                                          label: const Text("Order Now"),
-                                          icon: const Icon(Icons.shopping_cart),
-                                          backgroundColor: Colors.black,
-                                          elevation: 0,
-                                        );
-                                      }
-                                    );
+                                    return Builder(builder: (context) {
+                                      return FloatingActionButton.extended(
+                                        onPressed: () {},
+                                        label: const Text("Order Now"),
+                                        icon: const Icon(Icons.shopping_cart),
+                                        backgroundColor: Colors.black,
+                                        elevation: 0,
+                                      );
+                                    });
                                   } else {
                                     return FloatingActionButton.extended(
-                                        onPressed: () {
-                                          globals.index = 2;
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return Home();
-                            }));
-                                        },
-                                        label: Text("Login To Order"),
-                                        icon: const Icon(Icons.login_outlined),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        globals.index = 2;
+                                        Navigator.pushReplacement(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return const Home();
+                                        }));
+                                      },
+                                      label: const Text("Login To Order"),
+                                      icon: const Icon(Icons.login_outlined),
                                       backgroundColor: Colors.black,
-                                      elevation: 0,);
+                                      elevation: 0,
+                                    );
                                   }
                                 },
                               )
@@ -193,7 +203,7 @@ class CheckoutScreen extends StatelessWidget {
                 ),
               ));
         } else {
-          return Center(
+          return const Center(
             child: Text("Error"),
           );
         }
@@ -201,26 +211,26 @@ class CheckoutScreen extends StatelessWidget {
     );
   }
 
-  _buildTextFormField(
-      BuildContext context, TextEditingController controller, String s, String init) {
+  _buildTextFormField(BuildContext context, TextEditingController controller,
+      String s, String init) {
     return Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: TextFormField(
           autofocus: false,
           controller: TextEditingController(text: init),
           decoration: InputDecoration(
               filled: true,
               label: Text(s),
-              labelStyle: TextStyle(color: Colors.black),
-              enabledBorder: OutlineInputBorder(
+              labelStyle: const TextStyle(color: Colors.black),
+              enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.black),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.black),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               fillColor: Colors.white,
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 8, horizontal: 16)),
+                  const EdgeInsets.symmetric(vertical: 8, horizontal: 16)),
         ));
   }
 }

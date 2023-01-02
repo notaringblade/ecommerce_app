@@ -22,7 +22,7 @@ class DefaultBottomBar extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Icon(Icons.remove, size: 24),
+                const Icon(Icons.remove, size: 24),
                 Text("Reviews",
                     style: theme().textTheme.headline4!.copyWith(fontSize: 18),
                     textAlign: TextAlign.center),

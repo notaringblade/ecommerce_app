@@ -1,14 +1,9 @@
-import 'package:ecommerce_app/config/theme.dart';
 import 'package:ecommerce_app/models/product_model.dart';
-import 'package:ecommerce_app/widgets/common/default_bottom_bar.dart';
-import 'package:ecommerce_app/widgets/common/panel.dart';
 import 'package:ecommerce_app/widgets/productScreenWidgets/fixed_bottom_bar.dart';
 import 'package:ecommerce_app/widgets/productScreenWidgets/product_description.dart';
 import 'package:ecommerce_app/widgets/productScreenWidgets/product_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/config/capitalize.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import '../config/globals.dart' as global;
 
 class ProductScreen extends StatelessWidget {
   static const String routeName = '/productScreen';
@@ -20,7 +15,7 @@ class ProductScreen extends StatelessWidget {
         builder: (_) => ProductScreen(product: product));
   }
 
-  const ProductScreen({required this.product});
+  const ProductScreen({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +23,7 @@ class ProductScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          "${product.name}".toCapitalized(),
+          product.name.toCapitalized(),
           style: Theme.of(context).textTheme.headline1,
         ),
         centerTitle: true,
@@ -41,15 +36,15 @@ class ProductScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
                 height: 200,
                 // width: 280,
                 child: ProductCarousel(product: product)),
       
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 3, vertical: 4),
             ),
-            Container(
+            SizedBox(
               child: ProductDescription(product: product),
             ),
             // SizedBox(height: 10,)

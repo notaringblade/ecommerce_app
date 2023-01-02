@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Color(0xFFD8D7DB),
+    scaffoldBackgroundColor: const Color(0xFFD8D7DB),
     fontFamily: 'notosans',
     textTheme: textTheme(),
     dividerColor: Colors.transparent,

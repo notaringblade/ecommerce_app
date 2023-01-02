@@ -25,10 +25,10 @@ class SectionWidget extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                print("View ${sectionname}");
+                // print("View $sectionname");
                 Navigator.pushNamed(
                   context,
-                  '/${sectionname}',
+                  '/$sectionname',
                   arguments: Product.products,
                 );
               },
@@ -40,7 +40,7 @@ class SectionWidget extends StatelessWidget {
 
           ],
         ),
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
       ],
     );
   }

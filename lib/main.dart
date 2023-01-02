@@ -3,9 +3,9 @@ import 'package:ecommerce_app/bloc/history/history_bloc.dart';
 import 'package:ecommerce_app/bloc/login/login_bloc.dart';
 import 'package:ecommerce_app/config/router.dart';
 import 'package:ecommerce_app/config/theme.dart';
-import 'package:ecommerce_app/pages/accountScreen.dart';
-import 'package:ecommerce_app/pages/cartScreen.dart';
-import 'package:ecommerce_app/pages/homeScreen.dart';
+import 'package:ecommerce_app/pages/account_screen.dart';
+import 'package:ecommerce_app/pages/cart_screen.dart';
+import 'package:ecommerce_app/pages/home_screen.dart';
 import 'package:ecommerce_app/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -87,7 +87,7 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text(
-            "${names[globals.index!]}",
+            names[globals.index!],
             style: Theme.of(context).textTheme.headline1,
           ),
           centerTitle: true,

@@ -1,6 +1,4 @@
-import 'package:ecommerce_app/models/cart_model.dart';
 import 'package:ecommerce_app/models/product_model.dart';
-import 'package:ecommerce_app/pages/cartScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,9 +19,8 @@ class _CounterState extends State<Counter> {
   Widget build(BuildContext context) {
     return BlocListener<CartBloc, CartState>(
       listener: (context, state) {
-        // TODO: implement listener
       },
-      child: Container(
+      child: SizedBox(
         child: Row(
           children: [
             IconButton(

@@ -1,7 +1,5 @@
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/widgets/common/grid_list.dart';
-import 'package:ecommerce_app/widgets/homePageWidgets/item_list.dart';
-import 'package:ecommerce_app/widgets/productScreenWidgets/fixed_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 class SortedScreen extends StatelessWidget {
@@ -23,7 +21,7 @@ class SortedScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text("$name", style: Theme.of(context).textTheme.headline1),
+        title: Text(name, style: Theme.of(context).textTheme.headline1),
         centerTitle: true,
         elevation: 0,
         toolbarHeight: 55,
@@ -41,7 +39,7 @@ class SortedScreen extends StatelessWidget {
                     .where((product) => product.category == name.toLowerCase())
                     .toList());
           } else {
-            return Center(
+            return const Center(
               child: Text("No Products In This Category"),
             );
           }

@@ -9,7 +9,7 @@ class HistoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 400,
       height: 260,
       child: ListView.builder(
@@ -20,7 +20,7 @@ class HistoryList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.only(right: 4.0, left: 0.0),
+            padding: const EdgeInsets.only(right: 4.0, left: 0.0),
             child: ProductCard(product: History.products[index]),
           );
         },

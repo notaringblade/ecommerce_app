@@ -25,7 +25,6 @@ class Product extends Equatable {
   // this.reviews
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         name,
         category,

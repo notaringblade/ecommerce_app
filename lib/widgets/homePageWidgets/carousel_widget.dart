@@ -20,7 +20,7 @@ Widget carousel() {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         
         child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           child: Container(
               decoration: const BoxDecoration(
                   // borderRadius: BorderRadius.all(Radius.circular(20)),

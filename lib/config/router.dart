@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/models/product_model.dart';
-import 'package:ecommerce_app/pages/homeScreen.dart';
+import 'package:ecommerce_app/pages/home_screen.dart';
 import 'package:ecommerce_app/screens/checkout_screen.dart';
 import 'package:ecommerce_app/screens/landing_screen.dart';
 import 'package:ecommerce_app/screens/popular_screen.dart';
@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 
 class AppRouter{
   static Route onGenerateRoute(RouteSettings settings){
-    print('This is Route ${settings.name}');
+    // print('This is Route ${settings.name}');
     switch (settings.name) {
       case '/':
         return HomeScreen.route();
@@ -36,9 +36,9 @@ class AppRouter{
 
   static Route _errorRoute(){
     return MaterialPageRoute(
-      settings: RouteSettings(name: '/error'),
+      settings: const RouteSettings(name: '/error'),
       builder: (_)=> Scaffold(
-        appBar: AppBar(title: Text("Error")),
+        appBar: AppBar(title: const Text("Error")),
       )
     );
   }

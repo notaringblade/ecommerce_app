@@ -1,6 +1,4 @@
-import 'package:ecommerce_app/config/theme.dart';
 import 'package:ecommerce_app/models/product_model.dart';
-import 'package:ecommerce_app/widgets/homePageWidgets/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/config/capitalize.dart';
 
@@ -14,39 +12,39 @@ class Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // flex: 1,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 7, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 14),
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             color: Colors.white,
           ),
           // height: 470,
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
 
           // height: 400,
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 child: Text(
-                  "${product.name}".toCapitalized(),
+                  product.name.toCapitalized(),
                   style: Theme.of(context).textTheme.headline1,
                 ),
               ),
               InkWell(
                 onTap: () {
-                  print("View ${product.category}");
+                  // print("View ${product.category}");
                 Navigator.pushNamed(
                   context,
                   '/Sorted',
                   arguments: product.category,
                 );
                 },
-                child: Container(
+                child: SizedBox(
                   child: Text(
                     " ${product.category}",
                     style: Theme.of(context).textTheme.headline3,
@@ -54,24 +52,24 @@ class Description extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               ExpansionTile(
                 // flex: 1
                 textColor: Colors.redAccent,
                 iconColor: Colors.redAccent,
-                title: Text(
+                title: const Text(
                   "Quick Info",
                 ),
                 initiallyExpanded: true,
                 children: [
                   Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
 
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "${product.description}",
+                      product.description,
                       
                       style: Theme.of(context).textTheme.headline4,
                       overflow: TextOverflow.ellipsis,
@@ -80,48 +78,48 @@ class Description extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               ExpansionTile(
                 // flex: 1
                 textColor: Colors.redAccent,
                 iconColor: Colors.redAccent,
-                title: Text("Description"),
+                title: const Text("Description"),
                 children: [
                   Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
 
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "${product.description}",
+                      product.description,
                       style: Theme.of(context).textTheme.headline4,
                       overflow: TextOverflow.visible,
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               ExpansionTile(
                 // flex: 1
                 textColor: Colors.redAccent,
                 iconColor: Colors.redAccent,
-                title: Text("Features"),
+                title: const Text("Features"),
                 
                 children: [
                   Container(
                     // padding: EdgeInsets.symmetric(horizontal: 7, vertical: 14),
                     // height: 60,
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                     
                     child: ListView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: product.features.length,
                       itemBuilder: (context, index) {
-                        return Container(
+                        return SizedBox(
                           child: Text(" — ${product.features[index]}", style: Theme.of(context).textTheme.headline4,),
                         );
                       },
