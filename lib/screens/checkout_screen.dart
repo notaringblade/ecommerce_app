@@ -20,7 +20,6 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final TextEditingController emailController = TextEditingController();
     final TextEditingController nameController = TextEditingController();
     final TextEditingController addressController = TextEditingController();
@@ -110,11 +109,19 @@ class CheckoutScreen extends StatelessWidget {
                             ],
                           );
                         } else {
-                          return Center(
-                            child: Text(
-                              "Pleases Log in To Continue",
-                              style: theme().textTheme.displayMedium,
-                            ),
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 300,
+                              ),
+                              Center(
+                                child: Text(
+                                  "Please Log in To Continue",
+                                  style: theme().textTheme.displayMedium,
+                                ),
+                              ),
+                            ],
                           );
                         }
                       },
@@ -145,9 +152,10 @@ class CheckoutScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              BlocBuilder<CartBloc, CartState>(
-                                builder: (context, state) {
-                                  if (state is CartLoaded) {
+                              BlocBuilder<LoginBloc, LoginState>(
+                                builder: (context, lstate) {
+                                  if (state is CartLoaded &&
+                                      lstate is LoggedIn) {
                                     return SizedBox(
                                       child: Text(
                                         "\$ ${state.cart.grandTotalString}",
@@ -157,9 +165,7 @@ class CheckoutScreen extends StatelessWidget {
                                       ),
                                     );
                                   } else {
-                                    return const Center(
-                                      child: Text("Error"),
-                                    );
+                                    return const SizedBox();
                                   }
                                 },
                               ),
@@ -176,20 +182,22 @@ class CheckoutScreen extends StatelessWidget {
                                       );
                                     });
                                   } else {
-                                    return FloatingActionButton.extended(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                        globals.index = 2;
-                                        Navigator.pushReplacement(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return const Home();
-                                        }));
-                                      },
-                                      label: const Text("Login To Order"),
-                                      icon: const Icon(Icons.login_outlined),
-                                      backgroundColor: Colors.black,
-                                      elevation: 0,
+                                    return Center(
+                                      child: FloatingActionButton.extended(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                          globals.index = 2;
+                                          Navigator.pushReplacement(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                            return const Home();
+                                          }));
+                                        },
+                                        label: const Text("Login To Order"),
+                                        icon: const Icon(Icons.login_outlined),
+                                        backgroundColor: Colors.black,
+                                        elevation: 0,
+                                      ),
                                     );
                                   }
                                 },
